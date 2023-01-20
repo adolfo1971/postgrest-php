@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 /**
- * Undocumented class
+ * test demo 1:20
  */
 class Postgrest {
     private $method;
