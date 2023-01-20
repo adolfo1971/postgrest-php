@@ -1,13 +1,27 @@
 <?php
-
+/**
+ * class PostgrestQuery - 
+ */
 class PostgrestQuery {
+    /**
+     * Undocumented function
+     *
+     * @param [type] $url
+     * @param array $opts
+     */
     public function __construct($url, $opts = []) {
         $this->url = $url;
         $this->headers = isset($opts) && isset($opts->headers) && $opts->headers;
         $this->schema = isset($opts) && isset($opts->schema) && $opts->schema;
         $this->fetch = isset($opts) && isset($opts->fetch) && $opts->fetch;
     }
-
+    /**
+     * Undocumented function
+     *
+     * @param string $columns
+     * @param array $opts
+     * @return void
+     */
     public function select($columns = '*', $opts = []) {
         $method = isset($opts->head) ? 'HEAD' : 'GET';
         $quoted = false;
@@ -38,7 +52,13 @@ class PostgrestQuery {
             'allowEmpty' => false
         ));
     }
-
+    /**
+     * Undocumented function
+     *
+     * @param [type] $values
+     * @param [type] $opts
+     * @return void
+     */
     public function insert($values, $opts) {
         $method = 'POST';
         $body = $values;
@@ -73,7 +93,13 @@ class PostgrestQuery {
             'allowEmpty' => false
         ));
     }
-
+    /**
+     * Undocumented function
+     *
+     * @param [type] $values
+     * @param [type] $opts
+     * @return void
+     */
     public function upsert($values, $opts) {
         $method = 'POST';
         $prefersHeaders = ['resolution=' . $opts->ignoreDuplicates ? 'ignore' : 'merge' . '-duplicates'];
@@ -102,7 +128,13 @@ class PostgrestQuery {
             'allowEmpty' => false
         ));
     }
-
+    /**
+     * Undocumented function
+     *
+     * @param [type] $values
+     * @param [type] $opts
+     * @return void
+     */
     public function update($values, $opts) {
         $method = 'PATCH';
         $body = $values;
@@ -128,7 +160,12 @@ class PostgrestQuery {
             'allowEmpty' => false
         ));
     }
-
+    /**
+     * Undocumented function
+     *
+     * @param [type] $opts
+     * @return void
+     */
     public function delete($opts) {
         $method = 'DELETE';
         $prefersHeaders = [];
