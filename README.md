@@ -7,6 +7,6 @@ Install the library
 Import the library
 
 `use Supabase\Postgrest;`
-
+     
 
 ## Test

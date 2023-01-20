@@ -1,5 +1,7 @@
 <?php declare(strict_types=1);
-
+/**
+ * Undocumented class
+ */
 class Postgrest {
     private $method;
     public $url;
